@@ -1,0 +1,145 @@
+/* ==========================================================================
+   Meenaxi — holding page
+   Palette: deep emerald (Meenakshi's emerald hue) + antique temple gold + ivory
+   Type:    Marcellus (inscriptional display) / Mulish (quiet sans)
+   ========================================================================== */
+
+   :root{
+    --ink:#07231d;          /* deep emerald-teal ground        */
+    --ink-glow:#0c3128;     /* lighter centre of the backdrop  */
+    --ink-edge:#051912;     /* darkest edge of the backdrop    */
+    --gold:#c9a24b;         /* antique temple gold             */
+    --gold-bright:#e4c674;  /* highlight gold                  */
+    --gold-dim:#8a7540;     /* muted gold for fine lines       */
+    --ivory:#f1ece0;        /* primary text                    */
+    --sage:#8fa79b;         /* secondary text                  */
+  
+    box-sizing:border-box;
+    padding-top:env(safe-area-inset-top,0px);
+    padding-bottom:env(safe-area-inset-bottom,0px);
+  }
+  
+  *,*::before,*::after{box-sizing:inherit;margin:0;padding:0}
+  html,body{height:100%}
+  
+  body{
+    font-family:"Mulish",system-ui,-apple-system,sans-serif;
+    color:var(--ivory);
+    background:radial-gradient(120% 90% at 50% 34%,
+                var(--ink-glow) 0%, var(--ink) 58%, var(--ink-edge) 100%);
+    min-height:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:clamp(2rem,6vh,5rem) 1.5rem;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  
+  /* --- Logo --------------------------------------------------------------- */
+  .logo{
+    width:clamp(280px,52vw,500px);
+    height:auto;
+    display:block;
+    margin:0 auto clamp(1rem,2.4vh,1.8rem);
+    filter:drop-shadow(0 8px 30px rgba(0,0,0,.45));
+  }
+  
+  /* --- Divider ------------------------------------------------------------ */
+  .rule{
+    width:clamp(56px,9vw,84px);
+    height:1px;
+    border:0;
+    margin:clamp(1.5rem,3.4vh,2.2rem) auto clamp(1.4rem,3vh,2rem);
+    background:linear-gradient(90deg,transparent,var(--gold) 50%,transparent);
+    opacity:.85;
+  }
+  
+  /* --- Mission ------------------------------------------------------------ */
+  .mission{
+    font-family:"Marcellus",serif;
+    color:var(--ivory);
+    font-size:clamp(1.5rem,4.4vw,2.4rem);
+    letter-spacing:.02em;
+  }
+  
+  /* --- Investment focus --------------------------------------------------- */
+  .focus{
+    margin-top:clamp(2.4rem,5.2vh,3.4rem);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:clamp(1.1rem,3.4vw,2.4rem);
+    flex-wrap:wrap;
+  }
+  .focus span{
+    font-family:"Marcellus",serif;
+    font-size:clamp(1.02rem,2.9vw,1.3rem);
+    color:var(--gold-bright);
+    letter-spacing:.05em;
+  }
+  .focus i{
+    width:1px;
+    height:1.15em;
+    background:var(--gold-dim);
+    display:inline-block;
+    opacity:.7;
+  }
+  .reach{
+    margin-top:1.15rem;
+    font-weight:300;
+    font-size:clamp(.82rem,2.3vw,.96rem);
+    letter-spacing:.05em;
+    color:var(--sage);
+  }
+  
+  /* --- Footer ------------------------------------------------------------- */
+  .foot{
+    margin-top:clamp(3rem,7vh,4.6rem);
+    width:min(560px,92vw);
+    padding-top:1.3rem;
+    border-top:1px solid rgba(201,162,75,.22);
+  }
+  .heritage{
+    font-weight:300;
+    font-size:clamp(.78rem,2.1vw,.9rem);
+    line-height:1.65;
+    color:var(--ivory);
+    opacity:.62;
+    max-width:46ch;
+    margin:0 auto 1.15rem;
+  }
+  .heritage em{font-style:normal;color:var(--gold-bright);opacity:.9}
+  .meta{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:1rem;
+    font-size:.76rem;
+    letter-spacing:.08em;
+    color:var(--sage);
+    flex-wrap:wrap;
+  }
+  .meta a{color:var(--sage);text-decoration:none;transition:color .25s ease}
+  .meta a:hover,.meta a:focus-visible{color:var(--gold-bright)}
+  .meta .est{font-family:"Marcellus",serif;letter-spacing:.18em;color:var(--gold-dim)}
+  
+  /* --- One orchestrated entrance ----------------------------------------- */
+  .enter{opacity:0;transform:translateY(14px);
+    animation:rise .9s cubic-bezier(.2,.7,.2,1) forwards}
+  .logo.enter{transform:translateY(14px) scale(.975);
+    animation:sealin 1.15s cubic-bezier(.2,.7,.2,1) forwards}
+  .d1{animation-delay:.15s}.d2{animation-delay:.32s}.d3{animation-delay:.46s}
+  .d4{animation-delay:.6s}.d5{animation-delay:.74s}.d6{animation-delay:.88s}
+  @keyframes rise{to{opacity:1;transform:translateY(0)}}
+  @keyframes sealin{to{opacity:1;transform:translateY(0) scale(1)}}
+  
+  @media (prefers-reduced-motion:reduce){
+    .enter,.logo.enter{opacity:1;transform:none;animation:none}
+  }
+  @media (max-width:480px){
+    .meta{flex-direction:column;gap:.55rem;text-align:center}
+  }
+  
